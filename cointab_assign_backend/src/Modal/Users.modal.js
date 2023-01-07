@@ -4,13 +4,13 @@ const userSchema = new mongoose.Schema(
   {
     
     "gender": {type:String,require:true},
-    "gender": {type:Object,require:true},
+    "name": {type:Object,require:true},
     "location": {type:Object,require:true},
     "email": {type:String,require:true},
     "dob": {type:Object,require:true},
     "phone": {type:String,require:true},
     "picture": {type:Object,require:true},
-    
+
   }
 
 //   "gender": "female",
