@@ -8,7 +8,7 @@ app.get("/",async(req,res)=>{
 
     try{
         
-        const data= await axios.get("https://randomuser.me/api/")
+        const data= await axios.get("https://randomuser.me/api/?page=1&results=10")
 
         console.log(data.data);
 
