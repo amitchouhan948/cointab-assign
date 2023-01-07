@@ -1,8 +1,9 @@
 const express = require("express");
 const cors=require("cors")
 const dbConnect = require("../src/config/db");
+const userRouter=require("./Routes/Users.route");
 
-require('dotenv').config();
+// require('dotenv').config();
 
 const PORT = process.env.PORT || 8000;
 
@@ -18,6 +19,9 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Cointab Assignment API Active");
 });
+
+app.use("/users",userRouter);
+
 
 app.listen(PORT, async () => {
   await dbConnect()
