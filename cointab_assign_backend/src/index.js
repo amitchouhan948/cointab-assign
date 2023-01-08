@@ -3,7 +3,7 @@ const cors=require("cors")
 const dbConnect = require("../src/config/db");
 const userRouter=require("./Routes/Users.route");
 
-// require('dotenv').config();
+require('dotenv').config();
 
 const PORT = process.env.PORT || 8000;
 
