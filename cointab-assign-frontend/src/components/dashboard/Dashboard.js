@@ -51,6 +51,12 @@ const Dashboard = () => {
             setStatus(true);
             console.log(res.data)
 
+            toast({
+                title: `Users Data from database is deleted`,
+                status: "error",
+                isClosable: true,
+              })
+
         }
 
     }
