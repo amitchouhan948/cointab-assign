@@ -40,7 +40,7 @@ const Dashboard = () => {
 
        
         if(res.data="Users database deletion: Done"){
-            
+
             setStatus(true);
             console.log(res.data)
 
@@ -52,12 +52,12 @@ const Dashboard = () => {
 
   return (
    <>
-   <Box width="100%" m="auto" bgColor="pink">
-    <Flex flexDir="column" rowGap='2rem' width="50%" m="auto" pt='5%' pb="5%">
+   <Box width="100%" height="33rem" m="auto" bgColor="pink" mt='50px'>
+    <Flex flexDir="column" rowGap='2rem' width="50%" m="auto" pt='8%' pb="5%">
 
         <Button bgColor="teal" color="white" onClick={fetchUsers} loadingText='Fetch Users' isLoading={loading} >Fetch Users</Button>
         <Button bgColor="red" color="white" onClick={deleteDatabase}>Delete Database</Button>
-        <Link to="/users"><Button disabled={status} bgColor="teal" color="white">Users Detail</Button></Link>
+        <Link to="/users"><Button disabled={status} bgColor="teal" color="white" width='100%'>Users Detail</Button></Link>
 
     </Flex>
    </Box>
