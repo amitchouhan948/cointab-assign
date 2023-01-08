@@ -32,9 +32,9 @@ const Userdetail = () => {
     const fetchUsers=async(gender)=>{
 
         console.log("filter",gender);
-        const res= await axios.get(`http://localhost:8000/users/details?page=${page}&filter=${gender}`);
+        const res= await axios.get(`https://cointabdeveoperbackend-production.up.railway.app/users/details?page=${page}&filter=${gender}`);
 
-        console.log("length",res.data.len,res.data.data)
+        // console.log("length",res.data.len,res.data.data)
         setData(res.data.data);
         setLength(res.data.len)
 
