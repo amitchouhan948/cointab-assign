@@ -18,17 +18,36 @@ app.get("/",async(req,res)=>{
 
         // console.log(userData)
 
-        let x= await Users.find()
+        // let x= await Users.find()
 
         // console.log("x:",x)
 
-        res.send(x);
+        res.send("Users Fetched in database: Done");
 
       }
       catch(err){
       
         res.send(err)
       }
+
+
+});
+
+
+
+app.delete("/",async(req,res)=>{
+
+    try{
+
+        Users.collection.deleteMany()
+
+        res.send("Users database deletion: Done");
+
+    }
+    catch(err){
+    
+      res.send(err)
+    }
 
 
 });
@@ -41,17 +60,28 @@ app.get("/",async(req,res)=>{
 
 app.get("/details",async(req,res)=>{
 
-        let page=req.query.page
+        let {page,filter}=req.query
 
     try{
 
-        console.log(page)
+        console.log(page,filter)
+
+        if(filter==="male" || filter==="female"){
+
+            let len=(await Users.find({gender: filter})).length
+
+            let data= await Users.find({gender: filter}).skip(page*10-10).limit(10);
+
+            return res.send({len,data});
+
+
+        }
+
+        let len=(await Users.find()).length
 
         let data= await Users.find().skip(page*10-10).limit(10);
 
-        // console.log("x:",x)
-
-        res.send(data);
+        res.send({len,data});
 
       }
       catch(err){
